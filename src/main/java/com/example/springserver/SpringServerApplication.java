@@ -22,13 +22,6 @@ public class SpringServerApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringServerApplication.class, args);
     }
-    private static String trimTrailingZeros(String input) {
-        // Sử dụng biểu thức chính quy để bỏ đi các số 0 ở cuối chuỗi và dấu chấm nếu cần
-        input = input.replaceAll("\\.?0*$", "");
-
-        return input;
-    }
-
     @Bean
     public WebMvcConfigurer configure() {
         return new WebMvcConfigurer() {
