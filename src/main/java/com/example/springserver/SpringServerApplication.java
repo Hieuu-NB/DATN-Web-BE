@@ -4,6 +4,9 @@ import com.example.springserver.entity.Employee;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.configurationprocessor.json.JSONArray;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
@@ -18,20 +21,22 @@ public class SpringServerApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringServerApplication.class, args);
-        double number = 12345.02020;
-
-        // Chuyển số thành chuỗi
-        String numberString = Double.toString(number);
-
-        // Bỏ đi các số 0 không cần thiết ở cuối chuỗi
-        String trimmedNumber = trimTrailingZeros(numberString);
-
-        System.out.println(trimmedNumber);
     }
     private static String trimTrailingZeros(String input) {
         // Sử dụng biểu thức chính quy để bỏ đi các số 0 ở cuối chuỗi và dấu chấm nếu cần
         input = input.replaceAll("\\.?0*$", "");
 
         return input;
+    }
+
+    @Bean
+    public WebMvcConfigurer configure() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry reg) {
+                reg.addMapping("/**").allowedOrigins("*");
+            }
+        };
+
     }
 }

@@ -25,6 +25,21 @@ public class UserServiceImplement implements UserService{
     }
 
     @Override
+    public ResultDto login(User user) {
+        try {
+            String tk = user.getTaiKhoan();
+            String mk = user.getMatKhau();
+            User x = userRepository.findUser(tk,mk);
+            if (x == null){
+                return ResultDto.builder().code(401).message("sai tai khoan hoac mat khau").build();
+            }
+        }catch (Exception e){
+            return ResultDto.builder().code(400).message(e.getMessage()).build();
+        }
+        return ResultDto.builder().code(200).message("ok").build();
+    }
+
+    @Override
     public ResultDto saveAccount(String tk, String mk) {
         try {
             User x = new User();
