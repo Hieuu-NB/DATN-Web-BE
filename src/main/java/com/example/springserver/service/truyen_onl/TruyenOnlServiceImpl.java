@@ -1,6 +1,7 @@
 package com.example.springserver.service.truyen_onl;
 
 import com.example.springserver.dto.response.ResultDto;
+import com.example.springserver.entity.dto.KeySearch;
 import com.example.springserver.entity.truyen_onl.TrangTruyenOnl;
 import com.example.springserver.entity.truyen_onl.TruyenOnl;
 import com.example.springserver.repository.TrangTruyenOnlRepository;
@@ -24,6 +25,18 @@ public class TruyenOnlServiceImpl implements TruyenOnlService {
             return ResultDto.builder().code(400).message(e.getMessage()).build();
         }
         return ResultDto.builder().code(200).message("thanh cong").build();
+    }
+
+    @Override
+    public List<TruyenOnl> searchTruyen(KeySearch key) {
+//        TruyenOnl t = truyenRepository.save();
+//        if (key.getKey() == ""){
+//            List<TruyenOnl> list = null;
+//            return list;
+//        }
+        List<TruyenOnl> list = truyenRepository.search(key.getKey());
+
+        return list;
     }
 
     @Override

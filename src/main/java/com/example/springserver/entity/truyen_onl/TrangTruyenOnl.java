@@ -17,8 +17,9 @@ public class TrangTruyenOnl {
     @Column(name = "id", nullable = false)
     private Long id;
     private String linkTrangTruyen;
+//    private String from;
     @ManyToOne
-    @JoinColumn(name = "truyen_id" ,nullable = false,referencedColumnName = "id") // cột cart_id góống cột cartId bên cart
+    @JoinColumn(name = "from_truyen" ,nullable = false,referencedColumnName = "id") // cột cart_id góống cột cartId bên cart
     @JsonBackReference
     private TruyenOnl truyen;
 

@@ -10,5 +10,6 @@ import java.util.List;
 
 @Repository
 public interface TruyenOnlRepository extends JpaRepository<TruyenOnl, Long> {
-
+    @Query(value = "SELECT * FROM truyen_onl WHERE LOWER(ten_truyen) LIKE LOWER(CONCAT('%', :key, '%'))", nativeQuery = true)
+    List<TruyenOnl> search(String key);
 }

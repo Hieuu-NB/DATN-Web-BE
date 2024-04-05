@@ -1,6 +1,7 @@
 package com.example.springserver.controller;
 
 import com.example.springserver.dto.response.ResultDto;
+import com.example.springserver.entity.dto.KeySearch;
 import com.example.springserver.entity.truyen_onl.TrangTruyenOnl;
 import com.example.springserver.entity.truyen_onl.TruyenOnl;
 import com.example.springserver.service.truyen_onl.TruyenOnlService;
@@ -31,4 +32,8 @@ public class TruyenTranhOnlController {
 //        return truyenService.listTrangTruyenOnl(tapTruyen);
 //        return null;
 //    }
+    @PostMapping("/search")
+    public List<TruyenOnl> search(@RequestBody KeySearch key) {
+        return truyenService.searchTruyen(key);
+    }
 }

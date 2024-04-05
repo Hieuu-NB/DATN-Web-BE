@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface TrangTruyenOnlRepository extends JpaRepository<TrangTruyenOnl, Long> {
-    @Query(value = "SELECT * FROM trang_truyen_onl WHERE  truyen_id = :tapTruyen order by id", nativeQuery = true)
+    @Query(value = "SELECT * FROM trang_truyen_onl WHERE  from_truyen = :tapTruyen order by id", nativeQuery = true)
     List<TrangTruyenOnl> listTrangTruyenOnl(Long tapTruyen);
 }
