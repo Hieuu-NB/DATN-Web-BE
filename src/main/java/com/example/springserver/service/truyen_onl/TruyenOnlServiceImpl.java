@@ -48,4 +48,15 @@ public class TruyenOnlServiceImpl implements TruyenOnlService {
     public List<TrangTruyenOnl> listTrangTruyenOnl(Long tapTruyen) {
         return trangTruyenOnlRepository.listTrangTruyenOnl(tapTruyen);
     }
+
+
+//    @Override
+//    public ResultDto comment(String cmt) {
+//        try {
+//            truyenRepository.save(truyenOnl);
+//        }catch (Exception e){
+//            return ResultDto.builder().code(400).message(e.getMessage()).build();
+//        }
+//        return ResultDto.builder().code(200).message("thanh cong").build();
+//    }
 }

@@ -19,8 +19,13 @@ public class TruyenOnl {
     private String tenTruyen;
     private String tenChap;
     private String linkAnh;
+    private String content; //thể loại truyện
+
     @OneToMany(mappedBy = "truyen",cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<TrangTruyenOnl> listTruyen;
 
+    @OneToMany(mappedBy = "truyenOnl",cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Comments> cmt;
 }

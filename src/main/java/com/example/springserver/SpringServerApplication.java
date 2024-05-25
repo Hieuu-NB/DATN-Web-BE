@@ -1,21 +1,10 @@
 package com.example.springserver;
 
-import com.example.springserver.entity.Employee;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.configurationprocessor.json.JSONArray;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Currency;
-import java.util.Locale;
-
 @SpringBootApplication
 public class SpringServerApplication {
 
